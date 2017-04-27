@@ -66,7 +66,7 @@ namespace Common
 
 				//show big text at center of screen fade in and out
 				//NOT WORKING RIGHT NOW because can't do startCoroutine(transitionWaveDisplay) in static context :(
-				//waveTransitionText.text = waveText.text = "Wave " + roundNumber;
+				waveTransitionText.text = waveText.text = "Wave " + roundNumber;
 			}
 
 			return numEnemiesOnMap < maxEnemiesPossibleOnMap && numEnemiesThisRound < numEnemiesThisRoundMax;
