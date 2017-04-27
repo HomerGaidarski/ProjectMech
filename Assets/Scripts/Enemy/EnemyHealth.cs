@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Common;
+using Player;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour {
 
@@ -8,14 +10,23 @@ public class EnemyHealth : MonoBehaviour {
 
 	private Renderer[] allRenders;
 	private Color originalColor;
+	private Text scoreText;
 	void Start() {
 		allRenders = gameObject.GetComponentsInChildren<Renderer> ();
 		originalColor = allRenders[0].material.color;
+		scoreText = GameObject.Find ("Score").GetComponent<Text>();
 	}
 
 	void FixedUpdate () {
 		if (health <= 0) {
-			print ("Player killed me!!!!!!!!");
+			string enemyName = gameObject.name;
+			print (enemyName + ": Player killed me!!!!!!!!");
+			if (enemyName.Equals ("EnemyMech")) {
+				ManageGameState.score += 100;
+			} else {
+				ManageGameState.score += 50;
+			}
+			scoreText.text = "Score: " + ManageGameState.score;
 			ManageGameState.numEnemiesOnMap--;
 			Destroy (gameObject);
 		}

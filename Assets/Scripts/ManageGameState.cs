@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Common
 {
@@ -18,6 +19,32 @@ namespace Common
 		public static float delayTime;
 		private static bool printOnce = true;
 
+		public static int score = 0;
+		private static Text waveText; 
+		private static Text waveTransitionText;
+
+		//remember to run this in coroutine()
+		public static IEnumerator transitionWaveDisplay() {
+			print ("wave transition");
+			Color color = waveTransitionText.color;
+			while (color.a < 1) {
+				color.a += 0.2F;
+				if (color.a >= 1) {
+					color.a = 1;
+				}
+				waveTransitionText.color = color;
+				yield return new WaitForSeconds (2);
+			}
+			while (color.a > 0) {
+				color.a -= 0.2F;
+				if (color.a <= 0) {
+					color.a = 0;
+				}
+				waveTransitionText.color = color;
+				yield return new WaitForSeconds (2);
+			}
+		}
+
 		public static bool needMoreEnemies() {
 			if (numEnemiesThisRound >= numEnemiesThisRoundMax) { //round over
 				if (numEnemiesOnMap == 0) {
@@ -32,9 +59,14 @@ namespace Common
 
 			if (Time.time <= delayTime) {
 				return false;
-			} else /*if (printOnce)*/ {
+			} else if (printOnce) {
 				printOnce = false;
 				print ("Round " + roundNumber + " started.");
+
+
+				//show big text at center of screen fade in and out
+				//NOT WORKING RIGHT NOW because can't do startCoroutine(transitionWaveDisplay) in static context :(
+				//waveTransitionText.text = waveText.text = "Wave " + roundNumber;
 			}
 
 			return numEnemiesOnMap < maxEnemiesPossibleOnMap && numEnemiesThisRound < numEnemiesThisRoundMax;
@@ -46,6 +78,9 @@ namespace Common
             isPaused = inGameMenu.activeSelf;
 
 			backgroundMusic = GetComponent<AudioSource> ();
+
+			waveText = GameObject.Find ("Wave").GetComponent<Text> ();
+			waveTransitionText = GameObject.Find ("WaveTransition").GetComponent<Text> ();
         }
 		public void PausePlay() {
 			TogglePause ();

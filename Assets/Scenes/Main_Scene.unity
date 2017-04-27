@@ -276,6 +276,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11489376, guid: 8ad3ec3b066dc46419edf336eacf743b, type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ad3ec3b066dc46419edf336eacf743b, type: 2}
   m_IsPrefabParent: 0
@@ -781,6 +785,10 @@ Prefab:
     - target: {fileID: 11411216, guid: ea86d3fe7e9a1fd488e02da8a52c6bd6, type: 2}
       propertyPath: maxEnemiesPossibleOnMap
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207034, guid: ea86d3fe7e9a1fd488e02da8a52c6bd6, type: 2}
+      propertyPath: BypassListenerEffects
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea86d3fe7e9a1fd488e02da8a52c6bd6, type: 2}
