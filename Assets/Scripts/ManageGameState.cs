@@ -32,9 +32,8 @@ namespace Common
 
 			if (Time.time <= delayTime) {
 				return false;
-			} else if (printOnce) {
+			} else /*if (printOnce)*/ {
 				printOnce = false;
-				roundNumber++;
 				print ("Round " + roundNumber + " started.");
 			}
 
