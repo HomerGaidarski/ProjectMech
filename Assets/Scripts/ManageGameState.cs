@@ -10,17 +10,39 @@ namespace Common
         public GameObject inGameMenu;
         private static InGameUI inGameUIScript;
 		private static AudioSource backgroundMusic;
-		public static int numEnemiesOnMap;
-		public static int maxEnemiesPossibleOnMap;
+		public static int numEnemiesOnMap = 0; //keeps track of num enemies currently alive/active on map
+		public static int maxEnemiesPossibleOnMap = 30; //max num enemies that can be on the map at the same time
+		public static int numEnemiesThisRound = 0; //number of enemies spawned for this round
+		public static int numEnemiesThisRoundMax = 10; //max number of enemies that can be spawned for this round
+		public static int roundNumber = 1;
+		public static float delayTime;
+		private static bool printOnce = true;
 
 		public static bool needMoreEnemies() {
-			return numEnemiesOnMap < maxEnemiesPossibleOnMap;
+			if (numEnemiesThisRound >= numEnemiesThisRoundMax) { //round over
+				if (numEnemiesOnMap == 0) {
+					print ("Round " + roundNumber + " is over.");
+					printOnce = true;
+					numEnemiesThisRound = 0;
+					numEnemiesThisRoundMax = (++roundNumber) * 10;
+					delayTime = Time.time + 10;
+				}
+				return false;
+			}
+
+			if (Time.time <= delayTime) {
+				return false;
+			} else if (printOnce) {
+				printOnce = false;
+				roundNumber++;
+				print ("Round " + roundNumber + " started.");
+			}
+
+			return numEnemiesOnMap < maxEnemiesPossibleOnMap && numEnemiesThisRound < numEnemiesThisRoundMax;
 		}
 
         void Awake()
         {
-			numEnemiesOnMap = 0;
-			maxEnemiesPossibleOnMap = 30;
             inGameUIScript = GameObject.Find(GlobalVariables.World).GetComponent<InGameUI>();
             isPaused = inGameMenu.activeSelf;
 
@@ -30,9 +52,20 @@ namespace Common
 			TogglePause ();
 		}
 
+		public static void resetRoundVariables() {
+			numEnemiesOnMap = 0; //keeps track of num enemies currently alive/active on map
+			maxEnemiesPossibleOnMap = 30; //max num enemies that can be on the map at the same time
+			numEnemiesThisRound = 0; //number of enemies spawned for this round
+			numEnemiesThisRoundMax = 10; //max number of enemies that can be spawned for this round
+			roundNumber = 1;
+			delayTime = 0;
+			printOnce = true;
+		}
+
 		public static IEnumerator GameOver()
 		{
 			yield return new WaitForSeconds (2);
+			resetRoundVariables ();
 			SceneManager.LoadScene ("Main_Scene");
 		}
 

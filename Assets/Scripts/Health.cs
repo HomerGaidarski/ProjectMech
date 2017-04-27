@@ -2,6 +2,7 @@
 using System.Collections;
 using Common;
 using UnityEngine.UI;
+using Explosion;
 
 namespace Player
 {
@@ -18,6 +19,8 @@ namespace Player
 		private AudioSource bulletHitSound;
 
 		public Texture2D gameOverImage;
+		public GameObject explosionPrefab;
+		private ExplosionDamage explosionDmgScript;
 
         void Awake()
         {
@@ -30,6 +33,8 @@ namespace Player
                 playerUIScript = null;
                 print("No Player UI");
             }
+			explosionDmgScript = explosionPrefab.GetComponent<ExplosionDamage> ();
+			explosionDmgScript.maxDamage = 35;
         }
 
         void Start()
@@ -89,6 +94,7 @@ namespace Player
 
         private void Dead()
         {
+			
             print("You are dead");
 			StartCoroutine(ManageGameState.GameOver ());
         }

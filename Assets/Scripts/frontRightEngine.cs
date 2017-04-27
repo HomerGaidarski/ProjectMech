@@ -26,23 +26,23 @@ public class frontRightEngine : MonoBehaviour
 
 
 			if (dropship.transform.position.x != prevPosition.x || dropship.transform.position.z != prevPosition.z) {
-				Debug.Log ("goin forward");
+				//Debug.Log ("goin forward");
 				forward ();
 			}
 			else
 			{
-				Debug.Log ("settin idle");
+				//Debug.Log ("settin idle");
 				idle ();
 			}
 		}
 		//dropship is turning right
 		else if (dropship.transform.rotation.y < prevRotation) {
-			Debug.Log ("turning right");
+			//Debug.Log ("turning right");
 			rightTurn ();
 		}
 		//dropship is turning left
 		else if (dropship.transform.rotation.y > prevRotation) {
-			Debug.Log ("turning right");
+			//Debug.Log ("turning right");
 			leftTurn ();
 		}
 		else 

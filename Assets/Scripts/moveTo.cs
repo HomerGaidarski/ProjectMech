@@ -40,12 +40,13 @@ public class moveTo : MonoBehaviour
 	private void findAttachPoints(string enemyName, GameObject[] attachPoints) {
 		for (int i = 0; i < attachPoints.Length; i++) {
 			string name = enemyName + "_spawn" + i;
-			print (name);
+			//print (name);
 			GameObject attachPoint = transform.FindChild (name).gameObject;
 			if (attachPoint != null) {
 				attachPoints [i] = attachPoint;
-			} else
-				print (name + " is null");
+			} else {
+				//print (name + " is null");
+			}
 		}
 	}
 
@@ -76,7 +77,7 @@ public class moveTo : MonoBehaviour
 					Vector3 newDir = Vector3.RotateTowards (transform.forward, targetDir, step, 0.0F);
 					Debug.DrawRay (transform.position, newDir, Color.red);
 					transform.rotation = Quaternion.LookRotation (newDir);
-					print ("DROP");
+					//print ("DROP");
 				}
 				if (atDropzone == 1) {
 					if (timeAtDrop < 5) {
@@ -103,7 +104,7 @@ public class moveTo : MonoBehaviour
 				}
 
 				if (transform.position == exitPoint.transform.position) {
-					print ("resetting");
+					//print ("resetting");
 					reset ();
 				}
 			} else {
@@ -121,7 +122,7 @@ public class moveTo : MonoBehaviour
 	private bool hasEnemiesToDrop = false;
 	private void DropEnemies() {
 		if (hasEnemiesToDrop) {
-			print ("you know our motto, we deliva!");
+			//print ("you know our motto, we deliva!");
 			DropEnemyOfType (enemyMechDrops);
 			DropEnemyOfType (droneDrops);
 			hasEnemiesToDrop = false;
@@ -146,7 +147,7 @@ public class moveTo : MonoBehaviour
 	private void AttachEnemies() {
 		if (ManageGameState.needMoreEnemies ()) {
 			timeToReloadEnemies = false;
-			print ("attach");
+			//print ("attach");
 			attachEnemiesOfType (mechPoolScript, enemyMechAttaches, enemyMechDrops);
 			attachEnemiesOfType (dronePoolScript, droneAttaches, droneDrops);
 			timeAtDrop = 0;
@@ -157,15 +158,17 @@ public class moveTo : MonoBehaviour
 	private void attachEnemiesOfType(ObjectPooling poolScript, GameObject[] attaches, GameObject[] enemies) {
 		for (int i = 0; i < attaches.Length; i++) {
 			GameObject enemy = poolScript.GetNextObject ();
-			if (enemy == null)
+			if (enemy == null) {
 				print ("broken");
+			}
 			GameObject attachPoint = attaches [i];
-			print (attachPoint);
+			//print (attachPoint);
 			enemy.transform.parent = gameObject.transform;
 			enemy.transform.position = attachPoint.transform.position;
 			enemy.transform.rotation = attachPoint.transform.rotation;
 			enemies [i] = enemy;
 			ManageGameState.numEnemiesOnMap++;
+			ManageGameState.numEnemiesThisRound++;
 		}
 	}
 
@@ -177,7 +180,7 @@ public class moveTo : MonoBehaviour
 				if (transform.position == exitPoint.transform.position)
 					AttachEnemies ();
 			} else {
-				print ("you're calling me to many times brah! :(");
+				//print ("you're calling me to many times brah! :(");
 			}
 			
 			atDropzone = 0;
