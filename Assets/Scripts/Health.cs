@@ -92,6 +92,22 @@ namespace Player
             }
         }
 
+		public bool giveHealth(float h) {
+			print ("my health is " + health);
+			if (health == maxHealth) {
+				return false;
+			}
+			startTimeHealth = Time.time;
+			lastTargetHealth = health;
+			if (health + h < maxHealth) {
+				SetHealth(health + h);
+			} else {
+				SetHealth (maxHealth);
+			}
+			targetHealth = health;
+			return true;
+		}
+
         private void Dead()
         {
 			
