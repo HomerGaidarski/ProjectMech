@@ -26,7 +26,7 @@ namespace Common
             poolGroup = new GameObject();
             poolGroup.name = objectName + " Pool";
             GenerateCollection(numberOfPooledObjects);
-			print (gameObject.name + ": pool generated");
+			//print (gameObject.name + ": pool generated");
         }
 
 		public IEnumerator ReturnObject(GameObject returnObj)
@@ -47,13 +47,14 @@ namespace Common
 
 			returnObj.SetActive (false);
             collectionOfObjs.Push(returnObj);
-			print (returnObj.name + " is swimming in object pool");
+			//print (returnObj.name + " is swimming in object pool");
         }
 
         public GameObject GetNextObject()
         {
-			if (collectionOfObjs == null)
-				print ("null stack!");
+			if (collectionOfObjs == null) {
+				//print ("null stack!");
+			}
             if (collectionOfObjs.Peek() != null)
             {
 				return PopObj ();
@@ -82,7 +83,7 @@ namespace Common
         private void GenerateCollection(int length)
         {
             GameObject objectRef;
-            print(length);
+            //print(length);
             for (int i = 0; i < length; i++)
             {
                 objectRef = Instantiate(poolObject, Vector3.zero, Quaternion.identity) as GameObject;

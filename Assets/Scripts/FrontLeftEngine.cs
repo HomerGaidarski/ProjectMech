@@ -26,12 +26,12 @@ public class FrontLeftEngine : MonoBehaviour
 
 
 			if (dropship.transform.position.x != prevPosition.x || dropship.transform.position.z != prevPosition.z) {
-				Debug.Log ("goin forward");
+				//Debug.Log ("goin forward");
 				forward ();
 			}
 			else
 			{
-				Debug.Log ("settin idle");
+				//Debug.Log ("settin idle");
 				idle ();
 			}
 		}
@@ -68,7 +68,7 @@ public class FrontLeftEngine : MonoBehaviour
 	void rightTurn()
 	{
 		Quaternion temp = transform.localRotation;
-		Debug.Log (temp.eulerAngles);
+		//Debug.Log (temp.eulerAngles);
 		if (temp.eulerAngles.x < 40 || temp.eulerAngles.x >358)
 		{
 			temp.eulerAngles = new Vector3 (temp.eulerAngles.x + 1f, 0f, 0f);

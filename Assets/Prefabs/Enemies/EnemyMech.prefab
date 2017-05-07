@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  healthPack: {fileID: 149944, guid: fae2dc76026210641b3fd9f3992b6e64, type: 2}
 --- !u!114 &11491910
 MonoBehaviour:
   m_ObjectHideFlags: 1

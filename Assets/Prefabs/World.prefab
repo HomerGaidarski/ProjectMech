@@ -129,13 +129,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGameMenuPanel: {fileID: 0}
-  xMarkBtn: {fileID: 0}
   resumePlayerBtn: {fileID: 0}
   restartPlayerBtn: {fileID: 0}
   returnToMainMenuPlayerBtn: {fileID: 0}
   optionsPlayerBtn: {fileID: 0}
   exitPlayerBtn: {fileID: 0}
   panel: {fileID: 0}
+  optionsImage: {fileID: 0}
+  cancelButton: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
