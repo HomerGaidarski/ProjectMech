@@ -1055,6 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  deathDropObject: {fileID: 114478, guid: a6f838fe4ee5592419a37e5fd430cddf, type: 2}
 --- !u!114 &11439252
 MonoBehaviour:
   m_ObjectHideFlags: 1

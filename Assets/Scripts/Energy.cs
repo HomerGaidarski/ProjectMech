@@ -59,6 +59,22 @@ namespace Player
             }
         }
 
+		public bool giveEnergy(float e) {
+			print ("my energy is " + playerEnergy);
+			if (playerEnergy == maxPlayerEnergy) {
+				return false;
+			}
+			startTimeEnergy = Time.time;
+			lastTargetEnergy = playerEnergy;
+			if (playerEnergy + e < maxPlayerEnergy) {
+				SetPlayerEnergy(playerEnergy + e);
+			} else {
+				SetPlayerEnergy (maxPlayerEnergy);
+			}
+			targetEnergy = playerEnergy;
+			return true;
+		}
+
         public float GetEnergy()
         {
             return playerEnergy;

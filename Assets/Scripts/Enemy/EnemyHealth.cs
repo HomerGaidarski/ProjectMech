@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour {
 
 	public float health;
-	public GameObject healthPack;
+	public GameObject deathDropObject;
 
 	private Renderer[] allRenders;
 	private Color originalColor;
@@ -22,30 +22,25 @@ public class EnemyHealth : MonoBehaviour {
 		if (health <= 0) {
 			string enemyName = gameObject.name;
 			print (enemyName + ": Player killed me!!!!!!!!");
+
+			Transform deadTransform = gameObject.transform;
+			Vector3 pos = new Vector3(deadTransform.position.x, deadTransform.position.y + 5F, deadTransform.position.z);
+
 			if (enemyName.Equals ("EnemyMech")) {
 				ManageGameState.score += 100;
-				//spawn health pack, 50% chance
-				if (Random.Range (0, 2) == 1) {
-					Transform deadTransform = gameObject.transform;
-					Vector3 pos = new Vector3(deadTransform.position.x, deadTransform.position.y + 5F, deadTransform.position.z);
-
-					GameObject.Instantiate (healthPack, pos, deadTransform.rotation);
-				}
 			} else {
 				ManageGameState.score += 50;
+				pos.y = 5.706116f;
 			}
+			//spawn energy or health pack, 50% chance
+			if (Random.Range (0, 2) == 1) {
+				//need to implement object pooling
+				GameObject.Instantiate (deathDropObject, pos, deadTransform.rotation);
+			}
+
 			scoreText.text = "Score: " + ManageGameState.score;
 			ManageGameState.numEnemiesOnMap--;
-			//spawn object here
-
-
-
-
-
-
-
-
-			Destroy (gameObject);
+			Destroy (gameObject); //need to replace with object pooling
 		}
 	}
 

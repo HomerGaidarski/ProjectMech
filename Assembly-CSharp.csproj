@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyScan.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyShooting.cs" />
      <Compile Include="Assets\Scripts\Energy.cs" />
+     <Compile Include="Assets\Scripts\EnergyPack.cs" />
      <Compile Include="Assets\Scripts\Explode.cs" />
      <Compile Include="Assets\Scripts\ExplosionController.cs" />
      <Compile Include="Assets\Scripts\ExplosionDamage.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Scripts\GameBehavior.cs" />
      <Compile Include="Assets\Scripts\GlobalVariables.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
+     <Compile Include="Assets\Scripts\HealthPack.cs" />
      <Compile Include="Assets\Scripts\ManageGameState.cs" />
      <Compile Include="Assets\Scripts\ObjectPooling.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
@@ -77,7 +79,6 @@
      <Compile Include="Assets\Scripts\RandomSpin.cs" />
      <Compile Include="Assets\Scripts\RotateTankGuns.cs" />
      <Compile Include="Assets\Scripts\RotateTurretWithMouse.cs" />
-     <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\SearchObjectPool.cs" />
      <Compile Include="Assets\Scripts\SmokeDisableEnableTest.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
@@ -94,6 +95,7 @@
      <Compile Include="Assets\Scripts\rearEngines.cs" />
      <Compile Include="Assets\Scripts\releaseTheDrones.cs" />
      <Compile Include="Assets\Scripts\tankDeath.cs" />
+     <Compile Include="Assets\Scripts\xRayVision.cs" />
      <None Include="Assets\Materials\Day-Night Skyboxes\readme.txt" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
      <None Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />

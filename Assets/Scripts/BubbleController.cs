@@ -64,6 +64,11 @@ public class BubbleController : MonoBehaviour {
 
     }
 
+	IEnumerator burnEnergy() {
+		yield return new WaitForFixedUpdate();
+		playerEnergy.UsePlayerEnergy (0.075f);
+	}
+
     void Update() {
 		if (playerEnergy.GetEnergy () != 0f) {
 			CheckKeys ();
@@ -90,9 +95,12 @@ public class BubbleController : MonoBehaviour {
 			}
 
 			if (key1Toggled || key2Toggled || key3Toggled) {
+				/*
 				if (Time.time >= energyLastUsed + 1) {
-					playerEnergy.UsePlayerEnergy (0.01f);
+					playerEnergy.UsePlayerEnergy (0.15f);
 				}
+				*/
+				StartCoroutine (burnEnergy());
 			}
 		} else {
 			ShrinkBubble ();
@@ -102,6 +110,8 @@ public class BubbleController : MonoBehaviour {
 			tankBodyRenderer.material = tankBodyMat;
 			tankGunRenderer.material = tankGunMat;
 			tankTurretRenderer.material = tankTurretMat;
+			//adding code to fix edge case: player runs out of energy and orbs turn off, but when they get more energy decay continues until they toggle orbs on and off quickly
+			key1Toggled = key2Toggled = key3Toggled = false;
 		}
     }
 
