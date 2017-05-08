@@ -989,6 +989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   gameOverImage: {fileID: 2800000, guid: 8b8b54ba363581640a70703a214db84b, type: 3}
+  explosionPrefab: {fileID: 142832, guid: 52f98986b052f4845b07cb10875fc90a, type: 2}
 --- !u!114 &11473534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1033,7 +1034,7 @@ MonoBehaviour:
   invisTankBodyMat: {fileID: 2100000, guid: 7a1327deeac324ad4b959412dfa9e89b, type: 2}
   invisTankGunMat: {fileID: 2100000, guid: 9a7f8c519c41a4f64abaeeed658f7b46, type: 2}
   invisTankTurretMat: {fileID: 2100000, guid: 6002d5e8b51e1429fa5c9cec0ad59c6e, type: 2}
-  originalDmg: 10
+  originalDmg: 35
   key1Toggled: 0
   key2Toggled: 0
   key3Toggled: 0
@@ -1063,7 +1064,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 1
-  crosshairImage: {fileID: 2800000, guid: 5dd80123ef1654684bc856ec038f5d53, type: 3}
 --- !u!124 &12425076
 Behaviour:
   m_ObjectHideFlags: 1

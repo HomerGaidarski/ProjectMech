@@ -413,13 +413,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128126}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28b88375e5543314a88856bfe847c420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  healthPack: {fileID: 149944, guid: fae2dc76026210641b3fd9f3992b6e64, type: 2}
+  deathDropObject: {fileID: 149944, guid: fae2dc76026210641b3fd9f3992b6e64, type: 2}
 --- !u!114 &11491910
 MonoBehaviour:
   m_ObjectHideFlags: 1

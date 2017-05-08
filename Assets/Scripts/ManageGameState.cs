@@ -124,7 +124,7 @@ namespace Common
 
 		public void Restart() {
 			TogglePause ();
-			SceneManager.LoadScene("Main_Scene");
+			StartCoroutine(GameOver ());
 		}
 
 		public void MainMenu() {
