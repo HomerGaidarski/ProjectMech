@@ -100,6 +100,7 @@ namespace Common
 		{
 			yield return new WaitForSeconds (2);
 			resetRoundVariables ();
+			score = 0;
 			SceneManager.LoadScene ("Main_Scene");
 		}
 
