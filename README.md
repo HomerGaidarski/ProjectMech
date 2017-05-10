@@ -3,6 +3,8 @@
 A 3D-tank shooter, arcade/survival game made with unity 3D version 5.3.5. 
 Waves of enemies spawn via dropships and each wave is progressively harder than the previous wave.
 
+![ProjectMech gameplay image](githubReadMeImages/MainImage.PNG)
+
 #### Controls
 * WASD to move
 * Mouse to look and shoot
@@ -14,7 +16,6 @@ Waves of enemies spawn via dropships and each wave is progressively harder than 
 * Exit button in the main menu does nothing in the web build version.
 * Recommend PC/Mac build version of this game.
 * Playing directly in the main scene in the unity editor will have a brighter scene until the user gets a game over (manual restart via start menu or player dies).
-
 
 #### Original Game v1.0
 
