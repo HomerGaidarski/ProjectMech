@@ -23,6 +23,8 @@ public class moveTo : MonoBehaviour
 
 	private Vector3 startingPos;
 
+	public float flySpeed;
+
 	void Start()
 	{
 		startingPos = transform.position;
@@ -64,7 +66,7 @@ public class moveTo : MonoBehaviour
 		if (hasEnemiesToDrop || transform.position != startingPos) {
 			if (health > 0) {
 				if (Vector3.Dot (transform.forward, (curDest.transform.position - transform.position).normalized) > .99f && atDropzone == 0) {
-					float step = 30 * Time.deltaTime;
+					float step = flySpeed * Time.deltaTime;
 					transform.position = Vector3.MoveTowards (transform.position, curDest.transform.position, step);
 					if (transform.position == curDest.transform.position) {
 						atDropzone = 1;

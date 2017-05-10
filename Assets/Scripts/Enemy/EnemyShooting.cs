@@ -173,7 +173,7 @@ namespace Enemy
 			// without this if statement, if an audio component does not exist on the object, the shooting function only works once
 			if (shootingSound != null) {
 				shootingSound.Play ();
-				print ("sound");
+				//print ("sound");
 			}
 		}
 	}

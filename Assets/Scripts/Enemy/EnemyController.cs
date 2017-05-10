@@ -56,7 +56,7 @@ namespace Enemy
 			player = GameObject.FindGameObjectWithTag ("Player");
 			moveTarget = player;
             agent = GetComponent<NavMeshAgent>();//transform.FindChild("NavMesh").
-            enemyScanScript = GetComponent<EnemyScan>();
+			enemyScanScript = GetComponent<EnemyScan>();
             enemyShootingScript = GetComponent<EnemyShooting>();
             width = 6.5f;
             height = 5;
@@ -143,7 +143,7 @@ namespace Enemy
 					}
 				}
             //If the target is not visible
-            else {
+            	else {
 					if (enemyScanScript) {
 						enemyScanScript.StartScanning ();
 					}

@@ -12,8 +12,8 @@ namespace Common
         private static InGameUI inGameUIScript;
 		private static AudioSource backgroundMusic;
 		public static int numEnemiesOnMap = 0; //keeps track of num enemies currently alive/active on map
-		public static int maxEnemiesPossibleOnMap = 30; //max num enemies that can be on the map at the same time
-		public static int numEnemiesThisRound = 0; //number of enemies spawned for this round
+		public static int maxEnemiesPossibleOnMap = 40; //max num enemies that can be on the map at the same time
+		public static int numEnemiesThisRound = 0; //number of enemies killed for this round
 		public static int numEnemiesThisRoundMax = 10; //max number of enemies that can be spawned for this round
 		public static int roundNumber = 1;
 		public static float delayTime;
@@ -79,6 +79,7 @@ namespace Common
 
 			backgroundMusic = GetComponent<AudioSource> ();
 
+			numEnemiesThisRoundMax = roundNumber * 10;
 			waveText = GameObject.Find ("Wave").GetComponent<Text> ();
 			waveTransitionText = GameObject.Find ("WaveTransition").GetComponent<Text> ();
         }
