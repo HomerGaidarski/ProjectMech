@@ -72,7 +72,7 @@ namespace Common
 			return numEnemiesOnMap < maxEnemiesPossibleOnMap && numEnemiesThisRound < numEnemiesThisRoundMax;
 		}
 
-        void Awake()
+        void Start()
         {
             inGameUIScript = GameObject.Find(GlobalVariables.World).GetComponent<InGameUI>();
             isPaused = inGameMenu.activeSelf;
@@ -89,7 +89,7 @@ namespace Common
 
 		public static void resetRoundVariables() {
 			numEnemiesOnMap = 0; //keeps track of num enemies currently alive/active on map
-			maxEnemiesPossibleOnMap = 30; //max num enemies that can be on the map at the same time
+			maxEnemiesPossibleOnMap = 40; //max num enemies that can be on the map at the same time
 			numEnemiesThisRound = 0; //number of enemies spawned for this round
 			numEnemiesThisRoundMax = 10; //max number of enemies that can be spawned for this round
 			roundNumber = 1;

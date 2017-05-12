@@ -21,10 +21,7 @@ namespace Common
 
             newGameBtn.onClick.AddListener(() =>
             {
-                //Function call to start game
-				SceneManager.UnloadScene("Splash_Screen");
-				SceneManager.LoadScene("Main_Scene");
-                print("TODO: Add functionality to start game.");
+				StartCoroutine(ManageGameState.GameOver());
             });
 
             continueGameBtn.onClick.AddListener(() =>
