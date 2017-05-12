@@ -462,7 +462,7 @@ PlayerSettings:
   WP8::ScriptingBackend: 2
   WebGL::ScriptingBackend: 1
   WebGL::audioCompressionFormat: 4
-  WebGL::exceptionSupport: 0
+  WebGL::exceptionSupport: 2
   WebGL::memorySize: 512
   iOS::Architecture: 2
   iOS::ScriptingBackend: 0
@@ -471,7 +471,7 @@ PlayerSettings:
   - WebGL::dataCaching
   - WebGL::useEmbeddedResources
   WebGL::analyzeBuildSize: 0
-  WebGL::dataCaching: 0
+  WebGL::dataCaching: 1
   WebGL::useEmbeddedResources: 0
   stringPropertyNames:
   - WebGL::emscriptenArgs
