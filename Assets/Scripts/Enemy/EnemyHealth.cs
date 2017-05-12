@@ -10,11 +10,14 @@ public class EnemyHealth : MonoBehaviour {
 	public GameObject deathDropObject;
 
 	private Renderer[] allRenders;
+	private int numRenders;
 	private Color originalColor;
+	private Renderer mapPinRenderer;
 	private Text scoreText;
 	void Start() {
 		allRenders = gameObject.GetComponentsInChildren<Renderer> ();
-		originalColor = allRenders[0].material.color;
+		originalColor = allRenders [0].material.color;
+		mapPinRenderer = gameObject.transform.Find ("EnemyMapPin").gameObject.GetComponent<Renderer> ();
 		scoreText = GameObject.Find ("Score").GetComponent<Text>();
 	}
 
@@ -52,11 +55,15 @@ public class EnemyHealth : MonoBehaviour {
 
 	IEnumerator FlashRed() {
 		foreach (Renderer r in allRenders) {
-			r.material.color = Color.red;
+			if (mapPinRenderer != r) {
+				r.material.color = Color.red;
+			}
 		}
 		yield return new WaitForSeconds(0.2F);
 		foreach (Renderer r in allRenders) {
-			r.material.color = originalColor;
+			if (mapPinRenderer != r) {
+				r.material.color = originalColor;
+			}
 		}
 	}
 }
